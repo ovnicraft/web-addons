@@ -1,0 +1,15 @@
+=== modified file 'openerp/addons/base/rng/view.rng'
+--- openerp/addons/base/rng/view.rng	2012-02-13 10:17:58 +0000
++++ openerp/addons/base/rng/view.rng	2012-08-13 10:13:00 +0000
+@@ -500,6 +500,10 @@
+             <rng:attribute name="name" />
+             <rng:ref name="overload"/>
+             <rng:ref name="access_rights"/>
++            <rng:optional><rng:attribute name="bgcolor"/></rng:optional>
++            <rng:optional><rng:attribute name="fgcolor"/></rng:optional>
++            <rng:optional><rng:attribute name="cssclass"/></rng:optional>
++            <rng:optional><rng:attribute name="placeholder"/></rng:optional>
+             <rng:optional><rng:attribute name="domain_filter"/></rng:optional>
+             <rng:optional><rng:attribute name="attrs"/></rng:optional>
+             <rng:optional><rng:attribute name="string"/></rng:optional>
+
