@@ -1,0 +1,3 @@
+[submodule "web_wysihtml5/static/libs/wysihtml5"]
+	path = web_wysihtml5/static/libs/wysihtml5
+	url = git://github.com/jhollingworth/bootstrap-wysihtml5.git
