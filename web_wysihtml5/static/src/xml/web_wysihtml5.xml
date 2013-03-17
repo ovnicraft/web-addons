@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+  <t t-name="Wysihtml5">
+      <textarea rows="6"
+          t-att-name="widget.name"
+          t-att-id="widget.element_id"
+          t-att-maxlength="widget.field.size"
+          style="width: 100%"
+      ></textarea>
+      $('.textarea').wysihtml5();
+  </t>
+
+</templates>
