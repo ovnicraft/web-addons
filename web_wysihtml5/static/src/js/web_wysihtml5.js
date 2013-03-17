@@ -1,6 +1,6 @@
 openerp.web_wysihtml5 = function (openerp){
-    openerp.web.form.widgets.add('wysihtml5','openerp.web_wysihtml5.Wysihtml5');
-    openerp.web_wysihtml5.Wysihtml5 = openerp.web.form.Field.extend({
+    openerp.web.form.widgets.add('Wysihtml5','openerp.web_wysihtml5.Wysihtml5');
+    openerp.web_wysihtml5.Wysihtml5 = openerp.web.form.FieldText.extend({
         template: 'Wysihtml5',
         init: function(view, code){
             this._super(view, code);
@@ -9,7 +9,7 @@ openerp.web_wysihtml5 = function (openerp){
         start: function(){
             this._super.apply(this, arguments);
             var $textarea = this.$element.find('textarea');
-            $textarea.wysihtml5();
+//            $textarea.wysihtml5();
             $textarea.change(this.on_ui_change);
             this.resized = false;
         },
