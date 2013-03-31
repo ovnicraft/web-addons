@@ -1,7 +1,6 @@
 openerp.web_m2o_simple = function(openerp) {
     var _t = openerp.web._t,
     _lt = openerp.web._lt;
-
     openerp.web.form.FieldMany2One.include({
         get_search_result: function(request, response) {
             var search_val = request.term;
@@ -53,10 +52,10 @@ openerp.web_m2o_simple = function(openerp) {
                                                                           $('<span />').text(search_val).html()), action: false});
                                     }
                                     // create...
-/*                                    values.push({label: _t("<em>   Create and Edit...</em>"), action: function() {
-                                        self._change_int_value(null);
-                                        self._search_create_popup("form", undefined, {"default_name": search_val});
-                                    }});*/
+                                    // replaced with not result message
+                                    if (values.length == 0) {
+                                        values.push({label: _t("<em>   Not results found....</em>"), action: false});
+                                    }
 
                                     response(values);
                                 });
