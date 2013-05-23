@@ -25,7 +25,11 @@ try:
 except ImportError:
     import simplejson as json
 
-import web.http as openerpweb
+try:
+    import openerp.addons.web.common.http as openerpweb
+except ImportError:
+    import web.common.http as openerpweb
+
 from web.controllers.main import ExcelExport
 from web.controllers.main import Export
 
