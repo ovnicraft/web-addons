@@ -29,12 +29,10 @@
     'author': 'Zesty Beanz Technologies',
     'website': 'http://www.zbeanztech.com/',
     'version': '2.0',
-    'depends': [],
+    'depends': ['web'],
     'js': ['static/js/web_printscreen.js', 'static/*/js/*.js'],
-    'qweb': ['static/xml/printscreen.xml'],
+#    'qweb': ['static/xml/printscreen.xml'],
     'css': [],
-    'auto_install': False,
-    'web_preload': False,
 }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

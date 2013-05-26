@@ -1,16 +1,40 @@
-openerp.web_printscreen = function(instance, m) {
-var _t = instance.web._t,
+openerp.web_printscreen = function(instance) {
+    var _t = instance.web._t,
     QWeb = instance.web.qweb;
 
-    instance.web.Sidebar.include({
-        redraw: function() {
-            var self = this;
-            this._super.apply(this, arguments);
-            self.$el.find('.oe_sidebar').append(QWeb.render('AddPrintScreenMain', {widget: self}))
-            self.$el.find('.oe_sidebar_printscreen_pdf').on('click', self.on_sidebar_export_view_pdf);
-            self.$el.find('.oe_sidebar_printscreen_xls').on('click', self.on_sidebar_export_view);
-        },
+    instance.web.Sidebar = instance.web.Sidebar.extend({
+        add_default_sections: function() {
+            var self = this,
+            view = this.widget_parent,
+            view_manager = view.widget_parent,
+            action = view_manager.action;
+            if (this.session.uid === 1) {
+                this.add_section(_t('Customize'), 'customize');
+                this.add_items('customize', [{
+                    label: _t("Translate"),
+                    callback: view.on_sidebar_translate,
+                    title: _t("Technical Translation")
+                }]);
+            }
 
+            this.add_section(_t('Other Options'), 'other');
+            this.add_items('other', [
+                {
+                    label: _t("Import"),
+                    callback: view.on_sidebar_import
+                },{
+                    label: _t("Export"),
+                    callback: view.on_sidebar_export
+                },{
+                    label: _t("Export to PDF"),
+                    callback: this.on_sidebar_export_view_pdf
+                },{
+                    label: _t("Export to XLS"),
+                    callback: this.on_sidebar_export_view
+                }
+            ]);
+        },
+        
     on_sidebar_export_view: function() {
         var self = this,
         view = this.getParent(),
