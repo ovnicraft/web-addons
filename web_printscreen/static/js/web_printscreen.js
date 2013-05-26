@@ -37,7 +37,7 @@ openerp.web_printscreen = function(instance) {
         
     on_sidebar_export_view: function() {
         var self = this,
-        view = this.getParent(),
+        view = this.widget_parent;
         columns = view.visible_columns;
         export_columns_keys = [];
         export_columns_names = [];
@@ -47,7 +47,7 @@ openerp.web_printscreen = function(instance) {
                 export_columns_names.push(this.string);
             }
         });
-        rows = view.$el.find('.oe_list_content > tbody > tr');
+        rows = view.$element.find('.ui-widget-content tr');
         export_rows = [];
         $.each(rows,function(){
             $row = $(this);
@@ -78,7 +78,7 @@ openerp.web_printscreen = function(instance) {
     
     on_sidebar_export_view_pdf: function() {
         var self = this,
-        view = this.getParent(),
+        view = this.widget_parent;
         columns = view.visible_columns;
         export_columns_keys = [];
         export_columns_names = [];
@@ -89,7 +89,7 @@ openerp.web_printscreen = function(instance) {
                 export_columns_names.push(this.string);
             }
         });
-        rows = view.$el.find('.oe_list_content > tbody > tr');
+        rows = view.$element.find('.ui-widget-content tr');
         export_rows = [];
         $.each(rows,function(){
             $row = $(this);
